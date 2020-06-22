@@ -8,3 +8,5 @@ heading.render();
 const helloWorldButton = new HelloWorldButton();
 helloWorldButton.render();
 //addImage();
+
+const ten = 10;
