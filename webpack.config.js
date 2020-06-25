@@ -45,6 +45,12 @@ module.exports = {
                         plugins: ['transform-class-properties']
                     }
                 }
+            },
+            {
+                test: /\.hbs$/,
+                use: [
+                    'handlebars-loader'
+                ]
             }
                 
         ]
@@ -54,13 +60,13 @@ module.exports = {
         new MiniCssExtractPlugin({
             filename: 'style.[contenthash].css'
         }),
-        new CleanWebpackPlugin(),
+        //new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
-            title: 'Hello World',
+            title: 'a web pack',
+            template: 'src/index.hbs',
             filename: 'subfolder/custom_filename.html',
-            meta: {
-                description: 'Some description'
-            }
+            description: 'Some description',
+            
         })
     ]
 };
