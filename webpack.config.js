@@ -12,7 +12,7 @@ module.exports = {
         path: path.resolve(__dirname, './dist'),
         publicPath:''
     },
-    mode: 'none',
+    mode: 'development',
 
     module:{
         rules:[
@@ -60,7 +60,7 @@ module.exports = {
         new MiniCssExtractPlugin({
             filename: 'style.[contenthash].css'
         }),
-        //new CleanWebpackPlugin(),
+        new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
             title: 'a web pack',
             template: 'src/index.hbs',
