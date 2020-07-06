@@ -63,7 +63,7 @@ module.exports = {
         new HtmlWebpackPlugin({
             title: 'a web pack',
             template: 'src/index.hbs',
-            filename: 'subfolder/custom_filename.html',
+            filename: 'index.html',
             description: 'Some description',
             
         })

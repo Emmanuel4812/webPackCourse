@@ -5,14 +5,21 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 
 module.exports = {
-    entry: './src/index.js',
+    entry: {
+        'hello-world': './src/hello-world.js',
+        'bumper': './src/bumper.js'
+    },
     output: {
-        filename: 'bundle.[contenthash].js',
+        filename: '[name].[contenthash].js',
         path: path.resolve(__dirname, './dist'),
         publicPath:''
     },
     mode: 'production',
-
+    optimization: {
+        splitChunks:{
+            chunks: "all"
+        }
+    },
     module:{
         rules:[
            
@@ -57,14 +64,23 @@ module.exports = {
     plugins: [
         
         new MiniCssExtractPlugin({
-            filename: 'style.[contenthash].css'
+            filename: '[name].[contenthash].css'
         }),
         new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
-            title: 'a web pack',
-            template: 'src/index.hbs',
-            filename: 'subfolder/custom_filename.html',
+            title: 'hello-world',
+            chunks: ['hello-world'],
+            template: 'src/page-template.hbs',
+            filename: 'hello-world.html',
             description: 'Some description',
+            
+        }),
+        new HtmlWebpackPlugin({
+            title: 'bumper',
+            chunks: ['bumper'],
+            template: 'src/page-template.hbs',
+            filename: 'bumper.html',
+            description: 'Bumper',
             
         })
     ]
