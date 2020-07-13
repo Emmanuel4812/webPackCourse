@@ -1,8 +1,8 @@
 import Heading from './components/heading/heading.js';
 import bumperImage from './components/bumper-image/bumper-image.js';
-import _ from 'lodash';
+import React from 'react';
 
 const heading = new Heading();
-heading.render(_.upperFirst('bumperAd'));
+heading.render('bumperAd');
 const BumperImage = new bumperImage();
 BumperImage.render();
