@@ -2,6 +2,7 @@ import HelloWorldButton from './components/hello-world-button/hello-world-button
 //import addImage from './add-image.js';
 import Heading from './components/heading/heading.js';
 import React from 'react';
+import _ from 'lodash';
 
 
 const heading = new Heading();
