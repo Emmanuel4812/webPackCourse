@@ -4,9 +4,12 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 
 module.exports = {
-    entry: './src/index.js',
+    entry: {
+        'hello-world': './src/hello-world.js',
+        'bumper': './src/bumper.js'
+    },
     output: {
-        filename: 'bundle.js',
+        filename: '[name].bundle.js',
         path: path.resolve(__dirname, './dist'),
         publicPath:''
     },
@@ -61,10 +64,19 @@ module.exports = {
        
         new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
+            filename: 'hello-world.html',
+            chunks:['hello-world'],
             title: 'a web pack',
-            template: 'src/index.hbs',
-            filename: 'index.html',
+            template: 'src/page-template.hbs',
             description: 'Some description',
+            
+        }),
+        new HtmlWebpackPlugin({
+            filename: 'bumper.html',
+            chunks:['bumper'],
+            title: 'bumper pack',
+            template: 'src/page-template.hbs',
+            description: 'bumper',
             
         })
     ]
